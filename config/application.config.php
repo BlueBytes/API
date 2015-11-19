@@ -27,6 +27,7 @@ return array(
         'DoctrineModule',
         'DoctrineORMModule',
         'ToesTest',
+        'ZfrCors'
     ),
     'module_listener_options' => array(
         'module_paths' => array(
