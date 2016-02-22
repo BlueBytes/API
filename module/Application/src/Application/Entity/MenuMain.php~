@@ -1,0 +1,57 @@
+<?php
+
+namespace Application\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * MenuMain
+ *
+ * @ORM\Table(name="menu_main", indexes={@ORM\Index(name="menu_main_parent-menu_main_id", columns={"Parent"})})
+ * @ORM\Entity
+ */
+class MenuMain
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Title", type="string", length=50, nullable=true)
+     */
+    private $title;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Order", type="integer", nullable=false)
+     */
+    private $order = '0';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Route", type="string", length=255, nullable=false)
+     */
+    private $route = '';
+
+    /**
+     * @var \Application\Entity\MenuMain
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Entity\MenuMain")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="Parent", referencedColumnName="Id")
+     * })
+     */
+    private $parent;
+
+
+}
+

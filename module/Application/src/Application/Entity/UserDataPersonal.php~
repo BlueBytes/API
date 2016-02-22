@@ -1,0 +1,134 @@
+<?php
+
+namespace Application\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * UserDataPersonal
+ *
+ * @ORM\Table(name="user_data_personal")
+ * @ORM\Entity
+ */
+class UserDataPersonal
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="initials", type="string", length=25, nullable=false)
+     */
+    private $initials = '';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name_prefix", type="string", length=25, nullable=false)
+     */
+    private $namePrefix = '';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name_first", type="string", length=50, nullable=false)
+     */
+    private $nameFirst = '';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name_infix", type="string", length=25, nullable=false)
+     */
+    private $nameInfix = '';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name_last", type="string", length=50, nullable=false)
+     */
+    private $nameLast = '';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name_suffix", type="string", length=25, nullable=false)
+     */
+    private $nameSuffix = '';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="street", type="string", length=100, nullable=false)
+     */
+    private $street = '';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="number", type="string", length=25, nullable=false)
+     */
+    private $number = '';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="postalcode", type="string", length=25, nullable=false)
+     */
+    private $postalcode = '';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="place", type="string", length=100, nullable=false)
+     */
+    private $place = '';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="country", type="string", length=50, nullable=false)
+     */
+    private $country = '';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="phone_mobile", type="string", length=25, nullable=false)
+     */
+    private $phoneMobile = '';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="phone_home", type="string", length=25, nullable=false)
+     */
+    private $phoneHome = '';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255, nullable=false)
+     */
+    private $email = '';
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="birthdate", type="date", nullable=true)
+     */
+    private $birthdate;
+
+    /**
+     * @var \Application\Entity\User
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Application\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * })
+     */
+    private $user;
+
+
+}
+

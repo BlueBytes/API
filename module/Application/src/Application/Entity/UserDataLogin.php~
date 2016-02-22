@@ -1,0 +1,71 @@
+<?php
+
+namespace Application\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * UserDataLogin
+ *
+ * @ORM\Table(name="user_data_login")
+ * @ORM\Entity
+ */
+class UserDataLogin
+{
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="locked", type="boolean", nullable=false)
+     */
+    private $locked = '0';
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="lock_expire", type="datetime", nullable=true)
+     */
+    private $lockExpire;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="protected", type="boolean", nullable=false)
+     */
+    private $protected = '0';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="password_hash", type="string", length=255, nullable=false)
+     */
+    private $passwordHash = '';
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="last_login", type="datetime", nullable=true)
+     */
+    private $lastLogin;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="failed_logins", type="boolean", nullable=false)
+     */
+    private $failedLogins = '0';
+
+    /**
+     * @var \Application\Entity\User
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Application\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * })
+     */
+    private $user;
+
+
+}
+

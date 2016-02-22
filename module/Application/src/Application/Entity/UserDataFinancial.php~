@@ -1,0 +1,57 @@
+<?php
+
+namespace Application\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * UserDataFinancial
+ *
+ * @ORM\Table(name="user_data_financial")
+ * @ORM\Entity
+ */
+class UserDataFinancial
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=50, nullable=false)
+     */
+    private $name = '';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="place", type="string", length=50, nullable=false)
+     */
+    private $place = '';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="iban", type="string", length=30, nullable=false)
+     */
+    private $iban = '';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="bic", type="string", length=10, nullable=false)
+     */
+    private $bic = '';
+
+    /**
+     * @var \Application\Entity\User
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Application\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * })
+     */
+    private $user;
+
+
+}
+
